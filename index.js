@@ -127,4 +127,71 @@ let arrResult = map((value) => {
   return value + 5;
 }, arr);
 
-console.log(arrResult);
+// console.log(arrResult);
+
+// Find all lawyers aged below 35 with a salary above 80,000 and sort them by age.
+
+function lawersAbove35() {
+  let lawyerObj = people
+    .reduce((accu, obj) => {
+      if (obj.profession === "Lawyer" && obj.age < 35 && obj.salary > 80000) {
+        accu.push(obj);
+      }
+
+      return accu;
+    }, [])
+    .sort((obj1, obj2) => {
+      return obj1.age - obj2.age;
+    });
+
+  console.log(lawyerObj);
+}
+
+// lawersAbove35();
+
+const items = [
+  {
+    item: "mouse pad",
+    price: "$30",
+    category: "electronics",
+  },
+  {
+    item: "tshirt",
+    price: "$38",
+    category: "apparel",
+  },
+  {
+    item: "table",
+    price: "$321",
+    category: "furniture",
+  },
+  {
+    item: "keyboard",
+    price: "$300",
+    category: "electronics",
+  },
+  {
+    item: "charging cable",
+    price: "$90.5",
+    category: "electronics",
+  },
+  {
+    item: "adapter",
+    price: "$100.5",
+    category: "electronics",
+  },
+];
+//filter electronics below $100.5, use only reduce and give output like this "the items less than $100.5 are 1. mouse pad 2. adapter ..."
+
+let electronics = items.reduce((accu, obj) => {
+  let str = Number(obj.price.substring(1));
+  //   console.log(str);\
+  if (str < 100.5) {
+    let length = accu.length;
+    accu.push(`${length + 1}. ${obj.item}`);
+  }
+
+  return accu;
+}, []);
+
+console.log(electronics);
