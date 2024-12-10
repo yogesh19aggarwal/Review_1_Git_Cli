@@ -30,3 +30,8 @@ git log;
 
 git log --oneline;
 
+git remote add origin 
+
+git remote 
+
+git remote -v
