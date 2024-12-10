@@ -56,4 +56,57 @@ function findAverageSalary() {
   console.log(averageSalary);
 }
 
-findAverageSalary();
+// findAverageSalary();
+
+// Write a function that returns the youngest and oldest person in each profession.
+
+function findYoungestAndOldest() {
+  let groupPeople = people.reduce((result, object) => {
+    if (result[object.profession]) {
+      result[object.profession].push(object);
+    } else {
+      result[object.profession] = [];
+      result[object.profession].push(object);
+    }
+
+    return result;
+  }, {});
+
+  let minAge = {};
+  let maxAge = {};
+
+  for (const key in groupPeople) {
+    // console.log(key);
+    let professionPeople = groupPeople[key];
+
+    let min = 100;
+    let max = 0;
+
+    let objMin = {};
+    let objMax = {};
+    for (const element of professionPeople) {
+      if (element.age < min) {
+        min = element.age;
+        objMin = element;
+      }
+      if (element.age > max) {
+        max = element.age;
+        objMax = element;
+      }
+    }
+
+    minAge[key] = [];
+    maxAge[key] = [];
+
+    minAge[key].push(objMin);
+    maxAge[key].push(objMax);
+
+    // console.log(professionPeople);
+  }
+  console.log("min Age", minAge);
+  console.log("max AGe", maxAge);
+
+  //   console.log(groupPeople);
+}
+
+findYoungestAndOldest();
