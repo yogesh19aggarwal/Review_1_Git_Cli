@@ -51,12 +51,13 @@ function findAverageSalary() {
     }
 
     averageSalary[key] = totalSalary / length;
+    averageSalary[key] = averageSalary[key].toFixed(2);
   }
 
   console.log(averageSalary);
 }
 
-// findAverageSalary();
+findAverageSalary();
 
 // Write a function that returns the youngest and oldest person in each profession.
 
@@ -207,4 +208,24 @@ function str() {
   return output;
 }
 
-console.log(str());
+// console.log(str());
+
+const originalBook = {
+  name: "Harry Potter",
+  writer: "J K Rowling",
+  book_details: {
+    content: "abc",
+    pages: 500,
+  },
+};
+
+// let pirateBook = JSON.parse(JSON.stringify(originalBook));
+
+let piratedBook = { ...originalBook };
+
+piratedBook["book_details"] = { ...originalBook["book_details"] };
+
+piratedBook["writer"] = "Yogesh";
+piratedBook["book_details"]["pages"] = 300;
+// console.log(originalBook);
+// console.log(piratedBook);
