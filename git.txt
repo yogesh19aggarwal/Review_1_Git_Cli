@@ -1,0 +1,32 @@
+git init ;
+
+git add ;
+
+git commit -m "Message"
+
+git branch
+
+git branch branchName;
+
+git switch branchName;
+
+git switch -c branchName;
+
+git checkout -b branchName;
+
+git checkout branchName;
+
+git rebase branchName;
+
+git merge branchName;
+
+git commit --amend -m "message"
+
+git reset --hard commitId;
+
+git reste --soft commit-Id;
+
+git log;
+
+git log --oneline;
+
