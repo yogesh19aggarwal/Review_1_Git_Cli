@@ -109,4 +109,22 @@ function findYoungestAndOldest() {
   //   console.log(groupPeople);
 }
 
-findYoungestAndOldest();
+// findYoungestAndOldest();
+
+function map(cb, arr) {
+  let result = [];
+
+  for (let index = 0; index < arr.length; index++) {
+    result.push(cb(arr[index]));
+  }
+
+  return result;
+}
+
+let arr = [1, 2, 3, 4, 5];
+
+let arrResult = map((value) => {
+  return value + 5;
+}, arr);
+
+console.log(arrResult);
