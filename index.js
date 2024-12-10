@@ -194,4 +194,17 @@ let electronics = items.reduce((accu, obj) => {
   return accu;
 }, []);
 
-console.log(electronics);
+// console.log(electronics);
+
+let user = { name: "John", age: 25, location: "USA" };
+// output: My name is John. My age is 25. My location is USA
+// use destructuring
+
+function str() {
+  const { name, age, location } = user;
+  let output = `My name is ${name}. My age is ${age}. My location is ${location}`;
+
+  return output;
+}
+
+console.log(str());
