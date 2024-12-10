@@ -21,4 +21,39 @@ let groupPeople = people.reduce((result, object) => {
   return result;
 }, {});
 
-console.log(groupPeople);
+// console.log(groupPeople);
+
+// Find the average salary for each profession:
+
+function findAverageSalary() {
+  let groupPeopleBySalary = people.reduce((result, object) => {
+    //   console.log(object);
+
+    if (result[object.profession]) {
+      result[object.profession].push(object.salary);
+    } else {
+      result[object.profession] = [];
+      result[object.profession].push(object.salary);
+    }
+
+    return result;
+  }, {});
+
+  //   console.log(groupPeopleBySalary);
+
+  let averageSalary = {};
+  for (const key in groupPeopleBySalary) {
+    // console.log(key);
+    let length = groupPeopleBySalary[key].length;
+    let totalSalary = 0;
+    for (let salary = 0; salary < length; salary++) {
+      totalSalary += groupPeopleBySalary[key][salary];
+    }
+
+    averageSalary[key] = totalSalary / length;
+  }
+
+  console.log(averageSalary);
+}
+
+findAverageSalary();
